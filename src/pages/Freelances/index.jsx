@@ -36,10 +36,10 @@ const LoaderWrapper = styled.div`
 
 function Freelances() {
   const { theme } = useTheme()
-  const { data, isLoading, error } = useFetch(
-    `http://localhost:8000/freelances`
+  const { data, isLoading, error }  = useFetch(
+    "http://localhost:3000/freelances"
   )
-
+  console.log("\n",error,"\n")
   const freelancersList = data?.freelancersList
 
   if (error) {
@@ -64,6 +64,7 @@ function Freelances() {
               label={profile.job}
               title={profile.name}
               picture={profile.picture}
+              theme={theme}
             />
           ))}
         </CardsContainer>
